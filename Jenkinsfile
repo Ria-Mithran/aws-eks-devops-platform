@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                dir('app') {
+                dir('backend') {
                     bat 'npm ci'
                 }
             }
@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                dir('app') {
+                dir('backend') {
                     bat 'docker build -t aws-eks-devops-app:%BUILD_NUMBER% .'
                 }
             }
